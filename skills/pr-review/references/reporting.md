@@ -8,7 +8,7 @@ Each selected rubric returns one result with:
 
 - `rubric`: stable lowercase rubric name;
 - `state`: `approved`, `changes_requested`, `blocked`, `error`, or `stale`;
-- `judge`: provider/model and, when useful, the subagent role;
+- `judge`: exact provider, model, reasoning effort, rubric role, and native subagent ID when available. Never reduce this to a generic `Codex` label when the runtime exposes more detail;
 - `summary`: one or two sentences suitable for the PR summary table;
 - `findings`: zero or more findings using the contract below;
 - `coverage`: files, symbols, checks, and assumptions inspected;
@@ -21,8 +21,8 @@ For the GitHub summary, render one row per rubric in this exact shape:
 ```markdown
 | rubric | state | judge | summary |
 | --- | --- | --- | --- |
-| correctness | ✅ approved | codex/gpt-6 | No demonstrated behavioral defect found. |
-| compatibility | 🟡 changes requested | claude/opus | Existing configuration readers reject the new field shape. |
+| correctness | ✅ approved | codex/gpt-6.1-sol (high; correctness-reviewer) | No demonstrated behavioral defect found. |
+| compatibility | 🟡 changes requested | claude/claude-opus-5 (max; compatibility-reviewer) | Existing configuration readers reject the new field shape. |
 ```
 
 Use `✅` for approved, `🟡` for changes requested, `🔴` for blocked, `⚠️` for error, and `⏳` for in progress. Use `🕒` for stale evidence. The summary is advisory; even an all-green table does not replace human review.

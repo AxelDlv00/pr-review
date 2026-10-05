@@ -7,7 +7,7 @@ Changes should preserve these boundaries:
 - the main agent owns the review manifest, adjudication, and GitHub publication;
 - rubric subagents are independent and read-only;
 - findings require concrete evidence and a reproducible consequence;
-- publication is opt-in, pinned to an exact PR head, and limited to the `pr-review:` label namespace;
+- publication is the default for GitHub PR inputs, pinned to an exact PR head, suppressible with `local`/`dry-run`, and limited to the `pr-review:` label namespace;
 - the plugin must not approve, merge, push, or modify the reviewed repository by default.
 
 Validate the skill with:

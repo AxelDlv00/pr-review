@@ -8,14 +8,15 @@ Give every reviewer this context:
 You are the <rubric> reviewer in a read-only pre-review of repository <repository> at head <head> against base <base>.
 Review only the supplied scope through the <lens> rubric. Read repository instructions and inspect relevant consumers.
 Do not edit files, publish comments or labels, approve, merge, or request changes on GitHub.
-Return exactly one rubric result containing rubric, state, judge, summary, findings, coverage, and limitations. Return an explicit approved result when no supported finding remains. Findings must include severity, confidence, location, consequence, evidence, requested change, and verification.
+Return exactly one rubric result containing rubric, state, judge, summary, findings, coverage, and limitations. The judge must identify the provider, exact model, reasoning effort, rubric role, and native subagent ID when available. Return an explicit approved result when no supported finding remains. Findings must include severity, confidence, location, consequence, evidence, requested change, and verification.
 ```
 
 Useful roles are:
 
 - correctness reviewer: changed behavior, invariants, edge cases, state transitions, and error paths;
 - compatibility reviewer: public APIs, serialized data, migrations, dependency/toolchain changes, and old consumers;
-- quality reviewer: module boundaries, maintainability, naming, ownership, and repository conventions;
+- quality reviewer: module boundaries, maintainability, naming, ownership, repository conventions, overlong AI-shaped code or documentation, spaghetti control flow, and unjustified specificity;
+- generality reviewer: future compatibility, extension points, reusable abstractions, migration risk, and whether a narrower implementation unnecessarily hardens today's details into tomorrow's API;
 - test and operations reviewer: regression coverage, failure paths, resource use, observability, and rollout concerns;
 - security reviewer: authorization, untrusted input, secrets, subprocesses, network boundaries, and data exposure.
 
