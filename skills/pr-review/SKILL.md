@@ -24,7 +24,7 @@ If the head changes during the review, state that the result is stale and identi
 ## Review workflow
 
 1. Read the repository's contributor instructions and inspect the complete diff. Follow local instructions before running commands.
-2. Pin a review manifest containing repository, base commit, head commit, selected rubric revisions, agent/model, and checks to run. Never mix findings from different heads.
+2. Create an immutable review manifest containing repository, base commit, head commit, selected rubric revisions, agent/model, and checks to run. Never mix findings from different heads; a rerun gets a new manifest.
 3. Classify the change and select relevant rubrics. Dispatch one independent, read-only subagent per selected rubric when native subagents are available. Core rubrics are correctness, compatibility, design and reuse, and maintainability. Add engineering practices, testing and operations, security, performance, or documentation and scope when relevant.
 4. Give every subagent the exact manifest, narrow rubric scope, repository instructions, and a structured return contract. Subagents do not edit files, publish GitHub comments, change labels, approve, or merge.
 5. Inspect surrounding code and real consumers. A diff-only argument is insufficient for claims about behavior, compatibility, public API, concurrency, persistence, or security.
