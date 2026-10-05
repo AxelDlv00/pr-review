@@ -1,0 +1,6 @@
+interface:
+  display_name: "PR Pre-Review"
+  short_description: "Find evidence-backed issues before human PR review"
+  default_prompt: "Orchestrate a pre-review of this pull request: pin the exact head, dispatch focused rubric subagents, adjudicate evidence-backed findings, and report the rubric table without modifying or publishing anything."
+policy:
+  allow_implicit_invocation: false

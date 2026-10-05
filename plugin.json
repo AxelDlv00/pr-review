@@ -1,0 +1,12 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "pr-review",
+  "version": "0.1.0",
+  "description": "Run a structured, evidence-first pre-review of a pull request using the current coding agent and optional subagents.",
+  "author": {
+    "name": "Archon Horizon contributors"
+  },
+  "repository": "https://github.com/AxelDlv00/pr-review",
+  "license": "Apache-2.0",
+  "keywords": ["code-review", "pull-request", "software-engineering", "agents"]
+}
